@@ -1,0 +1,17 @@
+-- Zapytanie 1: pobierz zadanie i datę
+SELECT id_zadania, zadanie, data FROM zadania ORDER BY id_zadania;
+
+
+-- Zapytanie 2: wstaw nowe zadanie przypisane do osoby o id=1
+INSERT INTO zadania (zadanie, data, osoba_id) VALUES ('Zadanie przykładowe', '2024-05-10', 1);
+
+
+-- Zapytanie 3: usuń rekord o danym id
+DELETE FROM zadania WHERE id_zadania = 2;
+
+
+-- Zapytanie 4: wybierz imię, nazwisko i telefon osoby oraz odpowiadające im zadanie i datę (z użyciem relacji)
+SELECT o.imie, o.nazwisko, o.telefon, z.zadanie, z.data
+FROM osoby o
+JOIN zadania z ON o.id_osoba = z.osoba_id
+WHERE o.id_osoba = 1;
